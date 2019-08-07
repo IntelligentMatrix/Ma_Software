@@ -71,6 +71,7 @@ namespace Pic_Integrate
                 this.Status_Label.Text = "ing...!";
                 this.dateTimePicker_SearchTime.Enabled = false;
                 this.comboBox_GlassIDList.Enabled = false;
+                this.userButton_Refresh.Enabled = false;
             });
             //读取数据
             ProgramData.ReadGlassInfo(dateTimePicker_SearchTime.Value.ToString(ProgramData.DateFormat));
@@ -103,6 +104,7 @@ namespace Pic_Integrate
             //恢复状态
             this.dateTimePicker_SearchTime.Enabled = true;
             this.comboBox_GlassIDList.Enabled = true;
+            this.userButton_Refresh.Enabled = true;
             //玻璃ID信息
             CommonMethod.Bind<GlassInfo>(ref this.comboBox_GlassIDList, ProgramData.SysPara.GlassInfos, "Id", "", ProgramData.SelectTips);//comboBox_GlassIDList帮定数据
             //保存检索信息
@@ -301,6 +303,17 @@ namespace Pic_Integrate
             AboutBox aboutBox = new AboutBox();
             aboutBox.StartPosition = FormStartPosition.CenterScreen;
             aboutBox.ShowDialog();
+        }
+        /// <summary>
+        /// 刷新按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void userButton_Refresh_Click(object sender, EventArgs e)
+        {
+            if (IniFlag) return;
+            if (bgWorker.IsBusy) return;
+            bgWorker.RunWorkerAsync("Refresh GlassIDList");
         }
     }
 }

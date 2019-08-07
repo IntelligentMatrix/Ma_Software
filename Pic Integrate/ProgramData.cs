@@ -34,6 +34,7 @@ namespace Pic_Integrate
         public static int Point2Line = 24;//Point2 所在行
         public static int Point3Line = 26;//Point3 所在行
         public static int Point4Line = 28;//Point4 所在行
+        public static int OverTime = 5;//读取记录超时时长单位:minutes
         
         /// <summary>
         /// 初始化SheetTemplate数据
@@ -215,8 +216,11 @@ namespace Pic_Integrate
             {
                 foreach (var o in GlassIDListDirectory)
                 {
-                    if (SysPara.GlassInfos.Count <= 0 || SysPara.GlassInfos.Where(p => p.DirName == o.Name).ToList().Count <= 0)
+                    if (SysPara.GlassInfos.Count <= 0 || SysPara.GlassInfos.Where(p => p.DirName == o.Name).ToList().Count <= 0) 
                     {
+                        //时间判断
+                        if ((DateTime.Now - o.CreationTime).Minutes < OverTime) continue;
+                        //初始化数据
                         GlassInfo glassInfo = new GlassInfo();
                         //提取ID
                         string tmpID = o.Name;

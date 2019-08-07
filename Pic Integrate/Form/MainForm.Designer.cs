@@ -36,11 +36,14 @@
             this.SaveSheetPicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.picShow_SealImg = new MyLibrary.MyControl.PicShow();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Status_Label = new System.Windows.Forms.Label();
             this.comboBox_GlassDirection = new System.Windows.Forms.ComboBox();
+            this.userButton_Generate = new MyLibrary.MyControl.UserButton();
             this.dateTimePicker_SearchTime = new System.Windows.Forms.DateTimePicker();
             this.comboBox_GlassIDList = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,10 +69,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.picShow_SealImg = new MyLibrary.MyControl.PicShow();
-            this.userButton_Generate = new MyLibrary.MyControl.UserButton();
             this.picShow_SheetImg = new MyLibrary.MyControl.PicShow();
+            this.userButton_Refresh = new MyLibrary.MyControl.UserButton();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -136,6 +137,13 @@
             this.HelpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.HelpToolStripMenuItem.Text = "Help";
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.picShow_SealImg);
@@ -146,6 +154,15 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SealImg";
+            // 
+            // picShow_SealImg
+            // 
+            this.picShow_SealImg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picShow_SealImg.Location = new System.Drawing.Point(3, 17);
+            this.picShow_SealImg.Margin = new System.Windows.Forms.Padding(4);
+            this.picShow_SealImg.Name = "picShow_SealImg";
+            this.picShow_SealImg.Size = new System.Drawing.Size(557, 431);
+            this.picShow_SealImg.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -161,6 +178,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.userButton_Refresh);
             this.groupBox3.Controls.Add(this.Status_Label);
             this.groupBox3.Controls.Add(this.comboBox_GlassDirection);
             this.groupBox3.Controls.Add(this.userButton_Generate);
@@ -201,7 +219,7 @@
             // Status_Label
             // 
             this.Status_Label.AutoSize = true;
-            this.Status_Label.Location = new System.Drawing.Point(279, 39);
+            this.Status_Label.Location = new System.Drawing.Point(280, 39);
             this.Status_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Status_Label.Name = "Status_Label";
             this.Status_Label.Size = new System.Drawing.Size(41, 12);
@@ -218,6 +236,20 @@
             this.comboBox_GlassDirection.Size = new System.Drawing.Size(90, 20);
             this.comboBox_GlassDirection.TabIndex = 6;
             this.comboBox_GlassDirection.SelectedIndexChanged += new System.EventHandler(this.ComboBox_GlassDirection_SelectedIndexChanged);
+            // 
+            // userButton_Generate
+            // 
+            this.userButton_Generate.BackColor = System.Drawing.Color.Transparent;
+            this.userButton_Generate.CustomerInformation = "";
+            this.userButton_Generate.EnableColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.userButton_Generate.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
+            this.userButton_Generate.Location = new System.Drawing.Point(186, 207);
+            this.userButton_Generate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.userButton_Generate.Name = "userButton_Generate";
+            this.userButton_Generate.Size = new System.Drawing.Size(89, 17);
+            this.userButton_Generate.TabIndex = 1;
+            this.userButton_Generate.UIText = "Generate";
+            this.userButton_Generate.Click += new System.EventHandler(this.UserButton_Generate_Click);
             // 
             // dateTimePicker_SearchTime
             // 
@@ -463,36 +495,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "SheetImg";
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
-            // 
-            // picShow_SealImg
-            // 
-            this.picShow_SealImg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picShow_SealImg.Location = new System.Drawing.Point(3, 17);
-            this.picShow_SealImg.Margin = new System.Windows.Forms.Padding(4);
-            this.picShow_SealImg.Name = "picShow_SealImg";
-            this.picShow_SealImg.Size = new System.Drawing.Size(557, 431);
-            this.picShow_SealImg.TabIndex = 0;
-            // 
-            // userButton_Generate
-            // 
-            this.userButton_Generate.BackColor = System.Drawing.Color.Transparent;
-            this.userButton_Generate.CustomerInformation = "";
-            this.userButton_Generate.EnableColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
-            this.userButton_Generate.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
-            this.userButton_Generate.Location = new System.Drawing.Point(186, 207);
-            this.userButton_Generate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.userButton_Generate.Name = "userButton_Generate";
-            this.userButton_Generate.Size = new System.Drawing.Size(89, 17);
-            this.userButton_Generate.TabIndex = 1;
-            this.userButton_Generate.UIText = "Generate";
-            this.userButton_Generate.Click += new System.EventHandler(this.UserButton_Generate_Click);
-            // 
             // picShow_SheetImg
             // 
             this.picShow_SheetImg.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -500,6 +502,25 @@
             this.picShow_SheetImg.Name = "picShow_SheetImg";
             this.picShow_SheetImg.Size = new System.Drawing.Size(323, 178);
             this.picShow_SheetImg.TabIndex = 5;
+            // 
+            // userButton_Refresh
+            // 
+            this.userButton_Refresh.ActiveColor = System.Drawing.Color.Transparent;
+            this.userButton_Refresh.BackColor = System.Drawing.Color.Transparent;
+            this.userButton_Refresh.BackgroundImage = global::Pic_Integrate.Properties.Resources.refresh_cw_24px_1223184_easyicon_net;
+            this.userButton_Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.userButton_Refresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.userButton_Refresh.CustomerInformation = "";
+            this.userButton_Refresh.EnableColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.userButton_Refresh.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
+            this.userButton_Refresh.Location = new System.Drawing.Point(280, 11);
+            this.userButton_Refresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.userButton_Refresh.Name = "userButton_Refresh";
+            this.userButton_Refresh.OriginalColor = System.Drawing.Color.Transparent;
+            this.userButton_Refresh.Size = new System.Drawing.Size(24, 24);
+            this.userButton_Refresh.TabIndex = 31;
+            this.userButton_Refresh.UIText = "";
+            this.userButton_Refresh.Click += new System.EventHandler(this.userButton_Refresh_Click);
             // 
             // MainForm
             // 
@@ -569,5 +590,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label Status_Label;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private MyLibrary.MyControl.UserButton userButton_Refresh;
     }
 }

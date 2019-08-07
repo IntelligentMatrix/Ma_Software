@@ -69,5 +69,15 @@ namespace Pic_Integrate.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_cw_24px_1223184_easyicon_net {
+            get {
+                object obj = ResourceManager.GetObject("refresh_cw_24px_1223184_easyicon.net", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
